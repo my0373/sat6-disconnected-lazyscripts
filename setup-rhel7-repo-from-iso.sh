@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 ##
 if [ $# -lt 1 ]
@@ -28,6 +28,9 @@ name = RHEL7 Server
 baseurl = file://${MOUNTPATH}/
 enabled = 1
 EOF
+
+## Import GPG keys
+rpm --import file://${MOUNTPATH}/RPM-GPG-KEY-redhat-release
 
 ## Clean and repolist them
 yum clean all
